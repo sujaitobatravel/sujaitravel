@@ -1,610 +1,1494 @@
+```html
 <!DOCTYPE html>
-<html lang="id" class="scroll-smooth">
+<html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>MEDAN TOBA SUMATERA TOUR & TRAVEL | Wisata Halal Medan - Danau Toba</title>
-  <meta name="description" content="Paket wisata Danau Toba dari Medan ke Samosir, Berastagi, Sibayak. Hiking, waterfall, culture & more. Booking via WhatsApp!">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-  <!-- Tailwind CSS -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medan Toba Sumatera Tour</title>
+  <!-- Load React, ReactDOM, Babel, Tailwind CSS, and Font Awesome from CDNs -->
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            primary: '#0ea5e9',
-            secondary: '#10b981',
-            accent: '#8b5cf6',
-            'bg-dark': '#0f172a',
-            'card-dark': '#1e293b'
-          }
-        }
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/20GNY+vD6q2t5O9u+h6n5yF9lE+I/0b9B50/XJ5O9J+G5A+E5YJ+D5B6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- In-line CSS styles -->
+  <style>
+    :root {
+      /* Terang Mode */
+      --color-primary: #0ea5e9;
+      --color-primary-50: #f0f9ff;
+      --color-primary-100: #e0f2fe;
+      --color-primary-200: #bae6fd;
+      --color-primary-300: #7dd3fc;
+      --color-primary-400: #38bdf8;
+      --color-primary-500: #0ea5e9;
+      --color-primary-600: #0284c7;
+      --color-primary-700: #0369a1;
+      --color-primary-800: #075985;
+      --color-primary-900: #0c4a6e;
+      --color-secondary: #10b981;
+      --color-secondary-50: #ecfdf5;
+      --color-secondary-100: #d1fae5;
+      --color-secondary-200: #a7f3d0;
+      --color-secondary-300: #6ee7b7;
+      --color-secondary-400: #34d399;
+      --color-secondary-500: #10b981;
+      --color-secondary-600: #059669;
+      --color-secondary-700: #047857;
+      --color-secondary-800: #065f46;
+      --color-secondary-900: #064e3b;
+      --color-accent: #8b5cf6;
+      --color-accent-50: #f5f3ff;
+      --color-accent-100: #ede9fe;
+      --color-accent-200: #ddd6fe;
+      --color-accent-300: #c4b5fd;
+      --color-accent-400: #a78bfa;
+      --color-accent-500: #8b5cf6;
+      --color-accent-600: #7c3aed;
+      --color-accent-700: #6d28d9;
+      --color-accent-800: #5b21b6;
+      --color-accent-900: #4c1d95;
+      --color-background: #fefefe;
+      --color-surface: #f8fafc;
+      --color-text-primary: #0f172a;
+      --color-text-secondary: #64748b;
+      --color-success: #059669;
+      --color-warning: #d97706;
+      --color-error: #dc2626;
+      --color-border: #e2e8f0;
+      --color-border-light: #f1f5f9;
+      --color-card-bg: white;
+      --color-header-bg: white;
+    }
+    .dark {
+      /* Gelap Mode */
+      --color-background: #0f172a;
+      --color-surface: #1e293b;
+      --color-text-primary: #f8fafc;
+      --color-text-secondary: #94a3b8;
+      --color-border: #334155;
+      --color-border-light: #1e293b;
+      --color-card-bg: #1e293b;
+      --color-header-bg: #1e293b;
+    }
+    .btn-primary {
+      background-color: var(--color-primary);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .btn-primary:hover {
+      background-color: var(--color-primary-600);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    }
+    .btn-secondary {
+      background-color: var(--color-secondary);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .btn-secondary:hover {
+      background-color: var(--color-secondary-600);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    }
+    .btn-outline {
+      border: 2px solid var(--color-primary);
+      color: var(--color-primary);
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .btn-outline:hover {
+      background-color: var(--color-primary);
+      color: white;
+    }
+    .card {
+      background-color: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 0.75rem;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+    .card:hover {
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    }
+    .card-elevated {
+      background-color: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+    .card-elevated:hover {
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+    }
+    .input-field {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 0.5rem;
+      transition: all 0.2s ease;
+    }
+    .input-field:focus {
+      border-color: var(--color-primary);
+      outline: 2px solid transparent;
+      outline-offset: 2px;
+      box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.2);
+    }
+    .text-gradient {
+      background-image: linear-gradient(to right, var(--color-secondary), var(--color-primary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .section-padding {
+      padding: 3rem 1rem;
+    }
+    @media (min-width: 640px) {
+      .section-padding {
+        padding: 3rem 1.5rem;
       }
     }
-  </script>
-  <style>
-    * {
-      -webkit-tap-highlight-color: transparent;
+    @media (min-width: 1024px) {
+      .section-padding {
+        padding: 4rem 2rem;
+      }
     }
-    .hero-bg {
-      background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      position: relative;
+    .container-custom {
+      max-width: 80rem;
+      margin: 0 auto;
+      padding: 0 1rem;
     }
-    .hero-overlay {
-      background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 30, 60, 0.7) 100%);
-      position: absolute;
-      inset: 0;
-      z-index: 0;
+    @media (min-width: 640px) {
+      .container-custom {
+        padding: 0 1.5rem;
+      }
     }
-    .hero-content {
-      position: relative;
-      z-index: 10;
+    @media (min-width: 1024px) {
+      .container-custom {
+        padding: 0 2rem;
+      }
     }
-    .btn-whatsapp {
-      background: linear-gradient(45deg, #25D366, #128C7E);
-      color: white;
+    .shadow-soft {
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
     }
-    .btn-whatsapp:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 15px rgba(37, 211, 102, 0.4);
+    .shadow-warm {
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     }
-    .whatsapp-float {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      background: linear-gradient(45deg, #25D366, #128C7E);
-      color: white;
-      padding: 16px;
-      border-radius: 50%;
-      font-size: 24px;
-      z-index: 100;
-      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-      transition: all 0.3s;
+    .animate-gentle-bounce {
+      animation: gentleBounce 2s infinite;
     }
-    .whatsapp-float:hover {
-      transform: scale(1.1);
+    @keyframes gentleBounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+      }
+      40% {
+        transform: translateY(-5px);
+      }
+      60% {
+        transform: translateY(-3px);
+      }
     }
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.6s ease-out;
+    .font-accent {
+      font-family: 'Playfair Display', serif;
     }
-    .fade-in.active {
-      opacity: 1;
-      transform: translateY(0);
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--color-background);
+      color: var(--color-text-primary);
+      line-height: 1.6;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    .transition-smooth {
+      transition: all 0.3s ease;
+    }
+    .itinerary-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 0.75rem;
     }
     .itinerary-day {
-      border-left: 3px solid #10b981;
-      padding-left: 1rem;
+      font-weight: bold;
+      color: var(--color-primary);
+      margin-right: 0.5rem;
+      flex-shrink: 0;
+    }
+    .itinerary-content {
+      flex: 1;
+    }
+    .itinerary-separator {
+      margin: 0 0.25rem;
+      color: var(--color-text-secondary);
+    }
+    .destination-category {
+      font-size: 0.875rem;
+      opacity: 0.9;
+    }
+    .destination-title {
+      font-size: 1.125rem;
+      font-weight: 600;
+    }
+    .destination-description {
+      font-size: 0.875rem;
+      margin-bottom: 0.75rem;
+    }
+    .destination-link {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--color-primary);
+      transition: color 0.3s ease;
+    }
+    .destination-link:hover {
+      color: var(--color-primary-600);
+    }
+    .testimonial-name {
+      font-weight: 600;
+      color: var(--color-text-primary);
+    }
+    .testimonial-location {
+      font-size: 0.875rem;
+      color: var(--color-text-secondary);
+    }
+    .testimonial-text {
+      font-style: italic;
+      color: var(--color-text-secondary);
       margin-bottom: 1rem;
     }
-    .package-card {
-      transition: all 0.3s;
+    .package-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
     }
-    .package-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    .facility-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.75rem;
     }
-    .social-button {
-      width: 40px;
-      height: 40px;
+    .facility-icon {
+      margin-right: 0.75rem;
+      width: 1.5rem;
+      text-align: center;
+    }
+    .facility-text {
+      flex: 1;
+    }
+    .value-icon {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 1rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      border-radius: 50%;
+      margin: 0 auto 1rem;
+      background: linear-gradient(to bottom right, var(--color-secondary), var(--color-secondary-600));
+    }
+    .value-title {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--color-text-primary);
+    }
+    .value-description {
+      font-size: 0.875rem;
+      color: var(--color-text-secondary);
+    }
+    .prayer-time-item {
+      text-align: center;
+    }
+    .prayer-time-label {
+      opacity: 0.8;
+      font-size: 0.875rem;
+    }
+    .prayer-time-value {
+      font-weight: 600;
+      font-size: 1.125rem;
+    }
+    .footer-heading {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
       color: white;
-      font-size: 18px;
-      transition: transform 0.3s, box-shadow 0.3s;
     }
-    .social-button:hover {
+    .footer-link {
+      color: #94a3b8;
+      transition: color 0.3s ease;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .footer-link:hover {
+      color: var(--color-primary);
+    }
+    .footer-contact-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 0.75rem;
+      color: #94a3b8;
+    }
+    .footer-contact-icon {
+      margin-right: 0.75rem;
+      width: 1.5rem;
+      text-align: center;
+      color: var(--color-primary);
+    }
+    .footer-contact-text {
+      flex: 1;
+    }
+    .social-icon {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      background-color: #1e293b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s ease;
+    }
+    .social-icon:hover {
+      background-color: var(--color-primary);
+    }
+    .floating-whatsapp {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      width: 3.5rem;
+      height: 3.5rem;
+      background-color: var(--color-secondary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      z-index: 50;
+    }
+    .floating-whatsapp:hover {
       transform: scale(1.1);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     }
-    .accordion-content {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease-out;
+    .lightbox-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 50;
+      padding: 1rem;
     }
-    .accordion-content.expanded {
-      max-height: 200px;
-      transition: max-height 0.5s ease-in;
+    .lightbox-content {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
     }
-    @media (max-width: 640px) {
-      .text-4xl { font-size: 1.8rem; }
+    .lightbox-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      z-index: 51;
     }
-    /* Pastikan teks tetap putih di dark mode */
-    .dark .text-gray-800, .dark .text-gray-700, .dark .text-gray-600, .dark .text-gray-500 {
-      color: #e2e8f0;
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      z-index: 51;
+      padding: 1rem;
     }
-    .dark .text-gray-400, .dark .text-gray-300, .dark .text-gray-200 {
-      color: #cbd5e1;
+    .lightbox-prev {
+      left: 1rem;
+    }
+    .lightbox-next {
+      right: 1rem;
+    }
+    .mobile-menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 30px;
+      height: 30px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 10;
+    }
+    .mobile-menu-toggle span {
+      width: 100%;
+      height: 3px;
+      background: var(--color-text-primary);
+      border-radius: 10px;
+      transition: all 0.3s linear;
+      position: relative;
+      transform-origin: center;
+    }
+    .mobile-menu-toggle.open span:nth-child(1) {
+      transform: rotate(45deg) translate(6px, 6px);
+    }
+    .mobile-menu-toggle.open span:nth-child(2) {
+      opacity: 0;
+    }
+    .mobile-menu-toggle.open span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+    @media (max-width: 768px) {
+      .mobile-menu-toggle {
+        display: flex;
+      }
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background: var(--color-header-bg);
+        flex-direction: column;
+        align-items: center;
+        padding-top: 4rem;
+        transition: right 0.3s ease;
+        z-index: 40;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+      }
+      .nav-links.active {
+        right: 0;
+      }
+      .nav-links a {
+        margin: 1rem 0;
+        padding: 0.5rem 1rem;
+        width: 80%;
+        text-align: center;
+        border-radius: 0.5rem;
+      }
+      .nav-social {
+        margin-top: 2rem;
+      }
     }
   </style>
 </head>
-<body class="bg-white text-gray-800 font-inter transition-colors duration-300">
-  <!-- Floating WhatsApp Button -->
-  <a href="https://wa.me/6281397606622?text=Halo%20MEDAN%20TOBA%20SUMATERA%20TOUR%20%26%20TRAVEL!" target="_blank" class="whatsapp-float">
-    <i class="fab fa-whatsapp"></i>
-  </a>
-  <!-- Header -->
-  <header class="fixed w-full bg-white/90 dark:bg-gray-900/95 backdrop-blur-md shadow-sm z-50 transition-all duration-300">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-      <!-- Logo -->
-      <div class="flex items-center space-x-3">
-        <img src="logo.png" alt="Logo MEDAN TOBA SUMATERA" class="w-10 h-10 object-contain">
-        <div>
-          <h3 class="text-lg font-bold">MEDAN TOBA SUMATERA</h3>
-          <p class="text-xs text-gray-500 dark:text-gray-400">Tour & Travel</p>
-        </div>
-      </div>
-      <!-- Desktop Navigation -->
-      <nav class="hidden md:flex space-x-8">
-        <a href="#home" class="text-sm font-medium text-gray-700 hover:text-green-600" data-i18n="nav-home">Beranda</a>
-        <a href="#packages" class="text-sm font-medium text-gray-700 hover:text-green-600" data-i18n="nav-packages">Paket Wisata</a>
-        <a href="#faq" class="text-sm font-medium text-gray-700 hover:text-green-600" data-i18n="nav-faq">FAQ</a>
-        <a href="#about" class="text-sm font-medium text-gray-700 hover:text-green-600" data-i18n="nav-about">Tentang Kami</a>
-        <a href="#contact" class="text-sm font-medium text-gray-700 hover:text-green-600" data-i18n="nav-contact">Kontak</a>
-      </nav>
-      <!-- Social Media & Toggle -->
-      <div class="flex items-center space-x-4">
-        <a href="https://facebook.com/ariel.azhura" target="_blank" class="social-button bg-blue-600 hover:shadow-lg" title="Facebook">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="https://instagram.com/medantobasumatera" target="_blank" class="social-button bg-gradient-to-r from-purple-500 to-pink-500 hover:shadow-lg" title="Instagram">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://youtube.com/@medantobasumatera" target="_blank" class="social-button bg-red-600 hover:shadow-lg" title="YouTube">
-          <i class="fab fa-youtube"></i>
-        </a>
-        <button id="theme-toggle" class="text-gray-700 dark:text-gray-300" title="Toggle Dark Mode">
-          <i class="fas fa-moon"></i>
-        </button>
-        <button id="lang-toggle" class="text-sm font-medium text-gray-700 dark:text-gray-300" data-i18n="lang-toggle">EN</button>
-        <button id="menu-toggle" class="md:hidden text-gray-700 dark:text-gray-300">
-          <i class="fas fa-bars text-xl"></i>
-        </button>
-      </div>
-    </div>
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700">
-      <div class="px-6 py-4 space-y-3 text-gray-800 dark:text-gray-200">
-        <a href="#home" class="block py-2.5" data-i18n="nav-home">Beranda</a>
-        <a href="#packages" class="block py-2.5" data-i18n="nav-packages">Paket Wisata</a>
-        <a href="#faq" class="block py-2.5" data-i18n="nav-faq">FAQ</a>
-        <a href="#about" class="block py-2.5" data-i18n="nav-about">Tentang Kami</a>
-        <a href="#contact" class="block py-2.5" data-i18n="nav-contact">Kontak</a>
-        <div class="flex space-x-4 pt-4 border-t border-gray-200 dark:border-gray-700">
-          <a href="https://facebook.com/ariel.azhura" target="_blank" class="social-button bg-blue-600">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-          <a href="https://instagram.com/medantobasumatera" target="_blank" class="social-button bg-gradient-to-r from-purple-500 to-pink-500">
-            <i class="fab fa-instagram"></i>
-          </a>
-          <a href="https://youtube.com/@medantobasumatera" target="_blank" class="social-button bg-red-600">
-            <i class="fab fa-youtube"></i>
-          </a>
-          <button id="theme-toggle-mobile" class="text-gray-700 dark:text-gray-300">
-            <i class="fas fa-moon"></i> <span data-i18n="theme-toggle">Mode Gelap</span>
-          </button>
-          <button id="lang-toggle-mobile" class="text-gray-700 dark:text-gray-300" data-i18n="lang-toggle">EN</button>
-        </div>
-      </div>
-    </div>
-  </header>
-  <!-- Hero Section -->
-  <section id="home" class="pt-28 pb-16 hero-bg hero-content text-white">
-    <div class="hero-overlay"></div>
-    <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center text-center lg:text-left">
-      <div class="space-y-6 fade-in">
-        <h1 class="text-4xl md:text-5xl font-bold" data-i18n="hero-title">
-          Wisata Nyaman & Halal<br>
-          <span class="text-green-400">Medan – Danau Toba</span>
-        </h1>
-        <p class="text-lg" data-i18n="hero-desc">
-          Dengan supir Muslim lokal, mobil bersih, dan itinerary yang fleksibel. Pengalaman tak terlupakan dimulai dari sini.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 mt-6 justify-center lg:justify-start">
-          <a href="#packages" class="btn-whatsapp text-center px-8 py-4 rounded-lg font-semibold flex items-center justify-center">
-            <i class="fab fa-whatsapp mr-2"></i> <span data-i18n="btn-book">Pesan via WhatsApp</span>
-          </a>
-          <a href="#packages" class="border-2 border-green-400 text-green-400 text-center px-8 py-4 rounded-lg font-semibold hover:bg-green-900/30">
-            <span data-i18n="btn-see-packages">Lihat Paket</span>
-          </a>
-        </div>
-      </div>
-      <div></div>
-    </div>
-  </section>
-  <!-- Stats -->
-  <section class="py-12 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
-    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-8 text-center">
-      <div class="fade-in">
-        <p class="text-3xl font-bold text-green-600">500+</p>
-        <p class="text-gray-600 dark:text-gray-300" data-i18n="stat-customers">Pelanggan Puas</p>
-      </div>
-      <div class="fade-in">
-        <p class="text-3xl font-bold text-green-600">6 Tahun</p>
-        <p class="text-gray-600 dark:text-gray-300" data-i18n="stat-experience">Pengalaman</p>
-      </div>
-      <div class="fade-in">
-        <p class="text-3xl font-bold text-green-600">100%</p>
-        <p class="text-gray-600 dark:text-gray-300" data-i18n="stat-halal">Muslim Friendly</p>
-      </div>
-    </div>
-  </section>
-  <!-- Daftar Paket Wisata -->
-  <section id="packages" class="py-24 bg-white dark:bg-gray-900 transition-colors duration-300">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="text-center mb-16 fade-in">
-        <h2 class="text-3xl md:text-4xl font-bold" data-i18n="packages-title">Paket Wisata Tersedia</h2>
-        <p class="text-xl text-gray-600 dark:text-gray-300 mt-4" data-i18n="packages-desc">Pilih paket yang sesuai dengan waktu dan anggaran Anda.</p>
-      </div>
-      <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
-        <!-- Paket 6 Hari 5 Malam -->
-        <div class="bg-gray-50 dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 overflow-hidden package-card fade-in">
-          <div class="p-6">
-            <h3 class="text-2xl font-bold text-gray-800 dark:text-white" data-i18n="package-6-title">Paket 6 Hari 5 Malam</h3>
-            <p class="text-3xl font-extrabold text-green-600 mb-4">RM 2200 (2 orang)</p>
-            <p class="text-lg text-gray-600 mb-2" id="price-6h5m"></p>
-            <p class="text-sm text-red-500 mb-4" data-i18n="hiking-note">* Hiking Sibayak: RM 100/pax (cash)</p>
-            <div class="space-y-3 mb-6 text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-              <div class="itinerary-day"><strong>Day 1:</strong> Pick up Kualanamu Airport → Paten Jaya & Air Bah Manik → Kebun Teh Sidamanik → Simarjarunjung View → Ferry in Samosir → Batu Passa → Check in Hotel Samosir</div>
-              <div class="itinerary-day"><strong>Day 2:</strong> Batu Siallagan → Tomok Palace → Pantai Batu Hoda → Jembatan Tano Ponggol → Holbung Hills → Bukit Sibea-bea → Efrata Waterfall → Stay Hotel Samosir</div>
-              <div class="itinerary-day"><strong>Day 3:</strong> Geosite Sipinsur → Huta Ginjang → Pantai Bul Bul → Khairos Cafe → Bukit Senyum → Pantai Bebas Parapat → Check in Hotel Parapat</div>
-              <div class="itinerary-day"><strong>Day 4:</strong> Sipiso-piso Waterfall → Loken Barn → Paropo – Silalahi → Pasar Buah Berastagi → Gundaling Hill → Check in Hotel Berastagi</div>
-              <div class="itinerary-day"><strong>Day 5:</strong> 04.00 Hiking Sibayak (optional) → Sarune Cafe → Savana Sinabung → Danau Lau Kawar → Sikulikap Waterfall → Sibolang Durian → Check in Hotel Medan</div>
-              <div class="itinerary-day"><strong>Day 6:</strong> Istana Maimoon → Tjong A Fie Mansion → Vihara Medan → Oleh-oleh Medan & Shopping Batik → Drop off Airport → Tour Finish 🙏</div>
-            </div>
-            <a href="https://wa.me/6281397606622?text=Halo!%20Saya%20minat%20Paket%206H5M." target="_blank" class="btn-whatsapp w-full py-3 rounded-xl flex items-center justify-center font-semibold">
-              <i class="fab fa-whatsapp mr-2"></i> <span data-i18n="btn-book-now">Booking Sekarang</span>
-            </a>
-          </div>
-        </div>
-        <!-- Paket 5 Hari 4 Malam (Paket 2) -->
-        <div class="bg-gray-50 dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 overflow-hidden package-card fade-in">
-          <div class="p-6">
-            <h3 class="text-2xl font-bold text-gray-800 dark:text-white" data-i18n="package-5-title-2">Paket 5 Hari 4 Malam – Paket 2</h3>
-            <p class="text-3xl font-extrabold text-green-600 mb-4">RM 1800 (2 orang)</p>
-            <p class="text-lg text-gray-600 mb-2" id="price-5h4m2"></p>
-            <p class="text-sm text-red-500 mb-4" data-i18n="hiking-note">* Hiking Sibayak: RM 100/pax (cash)</p>
-            <div class="space-y-3 mb-6 text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-              <div class="itinerary-day"><strong>Day 1:</strong> Pick up Kualanamu Airport → Paten Jaya & Mbah Damanik → Kebun Teh Sidamanik → Simarjarunjung View → Ferry in Samosir → Pantai Batu Hoda → Makan malam → Check in Hotel Samosir</div>
-              <div class="itinerary-day"><strong>Day 2:</strong> Batu Siallagan → Bukit Burung View → Holbung Hills → Bukit Sibea-bea → Efrata Waterfall → Jembatan Tano Ponggol → Tomok Palace → Makan malam → Check in Hotel Samosir</div>
-              <div class="itinerary-day"><strong>Day 3:</strong> Tele Tower → Loken Barn → Sipiso-piso Waterfall → Sarune Cafe → Gundaling Hill → Pasar Buah Berastagi → Makan malam → Check in Hotel Berastagi</div>
-              <div class="itinerary-day"><strong>Day 4:</strong> 04.00 Hiking Sibayak (optional) → Savana Sinabung → Lau Kawar Lake → Hot Spring Sidebuk-debuk → Bukit Gundaling → Lumbini Park → Makan malam → Stay Hotel Berastagi</div>
-              <div class="itinerary-day"><strong>Day 5:</strong> Sikulikap Waterfall → Istana Maimoon → Tjong A Fie Mansion → Vihara Medan → Oleh-oleh Medan → Shopping Mall / Batik → Drop off Airport → Tour Finish 🙏</div>
-            </div>
-            <a href="https://wa.me/6281397606622?text=Halo!%20Saya%20minat%20Paket%205H4M%20(Paket%202)." target="_blank" class="btn-whatsapp w-full py-3 rounded-xl flex items-center justify-center font-semibold">
-              <i class="fab fa-whatsapp mr-2"></i> <span data-i18n="btn-book-now">Booking Sekarang</span>
-            </a>
-          </div>
-        </div>
-        <!-- Paket 5 Hari 4 Malam (Paket 1) -->
-        <div class="bg-gray-50 dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 overflow-hidden package-card fade-in">
-          <div class="p-6">
-            <h3 class="text-2xl font-bold text-gray-800 dark:text-white" data-i18n="package-5-title-1">Paket 5 Hari 4 Malam – Paket 1</h3>
-            <p class="text-3xl font-extrabold text-green-600 mb-4">RM 1800 (2 orang)</p>
-            <p class="text-lg text-gray-600 mb-2" id="price-5h4m1"></p>
-            <p class="text-sm text-red-500 mb-4" data-i18n="hiking-note-3">* Hiking Sibayak: RM 75/orang</p>
-            <div class="space-y-3 mb-6 text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-              <div class="itinerary-day"><strong>Day 1:</strong> Pick up Airport → Sukulikap Waterfall → Hot Spring Sidebuk-debuk → Makan malam → Check in Hotel Berastagi</div>
-              <div class="itinerary-day"><strong>Day 2:</strong> 04.00 Hiking Sibayak (optional) → Sarune Cafe → Savana Sinabung → Danau Lau Kawar → Pasar Buah Berastagi → Bukit Gundaling → Lumbini Park / Tangke Tabu → Makan malam → Stay Hotel Berastagi</div>
-              <div class="itinerary-day"><strong>Day 3:</strong> Sipiso-piso Waterfall → Loken Barn → Tele Tower → Efrata Waterfall → Holbung Hills → Bukit Cinta → Bukit Burung → Pantai Batu Hoda → Makan malam → Check in Hotel Samosir</div>
-              <div class="itinerary-day"><strong>Day 4:</strong> Batu Siallagan → Ferry out Samosir → Simarjarunjung View → Kebun Teh Sidamanik → Air Bah Manik → On the way Medan → Makan malam → Check in Hotel Medan</div>
-              <div class="itinerary-day"><strong>Day 5:</strong> Istana Maimoon → Masjid Raya → Oleh-oleh Medan → Shopping Batik / Mall → Drop off Kualanamu Airport → Tour Finish 🙏</div>
-            </div>
-            <a href="https://wa.me/6281397606622?text=Halo!%20Saya%20minat%20Paket%205H4M%20(Paket%201)." target="_blank" class="btn-whatsapp w-full py-3 rounded-xl flex items-center justify-center font-semibold">
-              <i class="fab fa-whatsapp mr-2"></i> <span data-i18n="btn-book-now">Booking Sekarang</span>
-            </a>
-          </div>
-        </div>
-        <!-- Paket 4 Hari 3 Malam -->
-        <div class="bg-gray-50 dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 overflow-hidden package-card fade-in">
-          <div class="p-6">
-            <h3 class="text-2xl font-bold text-gray-800 dark:text-white" data-i18n="package-4-title">Paket 4 Hari 3 Malam</h3>
-            <p class="text-3xl font-extrabold text-green-600 mb-4">RM 1600 (3 orang)</p>
-            <p class="text-lg text-gray-600 mb-2" id="price-4h3m"></p>
-            <p class="text-sm text-red-500 mb-4" data-i18n="hiking-note-2">* Hiking Sibayak: RM 100 untuk 2 orang</p>
-            <div class="space-y-3 mb-6 text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-              <div class="itinerary-day"><strong>Day 1:</strong> Pick up Airport → Mbah Damanik → Kebun Teh Sidamanik → Simarjarunjung View → Panorama Parapat → Pantai I Love Toba → Ferry in Samosir → Makan malam → Check in Hotel Samosir</div>
-              <div class="itinerary-day"><strong>Day 2:</strong> Batu Siallagan → Tomok Village / Palace → Pantai Batu Hoda → Jembatan Tano Ponggol → Tulas View / Bukit Burung → Holbung Hills → Bukit Sibea-bea → Efrata Waterfall → Aek Natonang / Danau Sidohoni → Makan malam → Stay Hotel Samosir</div>
-              <div class="itinerary-day"><strong>Day 3:</strong> Sarapan, check out → Tele Tower → Loken Barn → Sipiso-piso Waterfall → Sarune Cafe → Gundaling Hill → Pasar Buah Berastagi → Hot Spring Sidebuk-debuk → Makan malam → Check in Hotel Berastagi</div>
-              <div class="itinerary-day"><strong>Day 4:</strong> 04.00 Hiking Sibayak (optional) → Sikulikap Waterfall → Istana Maimoon → Tjong A Fie Mansion → Vihara Medan → Oleh-oleh Medan → Drop off Airport / Hotel Medan → Tour Finish 🙏</div>
-            </div>
-            <a href="https://wa.me/6281397606622?text=Halo!%20Saya%20minat%20Paket%204H3M." target="_blank" class="btn-whatsapp w-full py-3 rounded-xl flex items-center justify-center font-semibold">
-              <i class="fab fa-whatsapp mr-2"></i> <span data-i18n="btn-book-now">Booking Sekarang</span>
-            </a>
-          </div>
-        </div>
-        <!-- Paket 3 Hari 2 Malam -->
-        <div class="bg-gray-50 dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 overflow-hidden package-card fade-in">
-          <div class="p-6">
-            <h3 class="text-2xl font-bold text-gray-800 dark:text-white" data-i18n="package-3-title">Paket 3 Hari 2 Malam</h3>
-            <p class="text-3xl font-extrabold text-green-600 mb-4">RM 1200 (2 orang)</p>
-            <p class="text-lg text-gray-600 mb-2" id="price-3h2m"></p>
-            <p class="text-sm text-red-500 mb-4" data-i18n="hiking-note">* Hiking Sibayak: RM 100/pax (cash)</p>
-            <div class="space-y-3 mb-6 text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-              <div class="itinerary-day"><strong>Day 1:</strong> Pick up Kualanamu Airport → Paten Jaya / Mbah Damanik → Kebun Teh Sidamanik → Simarjarunjung View → Ferry via Tigaras → Pantai Batu Hoda → Makan malam → Check in Hotel Samosir</div>
-              <div class="itinerary-day"><strong>Day 2:</strong> Sarapan, check out → Batu Siallagan → Bukit Burung View → Holbung Hills → Bukit Sibea-bea → Efrata Waterfall → Tele Tower → Loken Barn → Sipiso-piso Waterfall → Makan malam → Check in Hotel Berastagi</div>
-              <div class="itinerary-day"><strong>Day 3:</strong> 04.00 Hiking Sibayak (optional) → Sarapan, check out → Sarune Cafe → Bukit Gundaling → Sikulikap Waterfall → Istana Maimoon → Tjong A Fie Mansion → Oleh-oleh Medan → Makan siang → Drop off Airport → Tour Finish 🙏</div>
-            </div>
-            <a href="https://wa.me/6281397606622?text=Halo!%20Saya%20minat%20Paket%203H2M." target="_blank" class="btn-whatsapp w-full py-3 rounded-xl flex items-center justify-center font-semibold">
-              <i class="fab fa-whatsapp mr-2"></i> <span data-i18n="btn-book-now">Booking Sekarang</span>
-            </a>
-          </div>
-        </div>
-        <!-- Fasilitas Paket (Semua Paket) -->
-        <div class="bg-white dark:bg-gray-700 rounded-2xl shadow-lg p-8 fade-in">
-          <h3 class="text-2xl font-bold mb-6 text-center" data-i18n="facilities-title">💡 Fasilitas Paket (Semua Paket)</h3>
-          <div class="space-y-6 text-sm">
-            <div>
-              <p class="font-semibold text-green-600" data-i18n="included">✅ Termasuk:</p>
-              <ul class="space-y-1 text-gray-700 dark:text-gray-300">
-                <li>• Driver Profesional</li>
-                <li>• Mobil AC Nyaman</li>
-                <li>• BBM & Tol</li>
-                <li>• Tiket Masuk & Ferry</li>
-                <li>• Air Mineral</li>
-                <li>• Makan Driver</li>
-                <li>• Penginapan Driver</li>
-              </ul>
-            </div>
-            <div>
-              <p class="font-semibold text-red-500" data-i18n="excluded">❌ Tidak Termasuk:</p>
-              <ul class="space-y-1 text-gray-700 dark:text-gray-300">
-                <li>• Hotel Penginapan</li>
-                <li>• Makan Siang & Malam</li>
-                <li>• Guide Hiking Sibayak</li>
-              </ul>
-            </div>
-            <div>
-              <p class="font-semibold text-blue-500" data-i18n="note">📌 Catatan:</p>
-              <p class="text-gray-700 dark:text-gray-300 text-sm">
-                <span data-i18n="note-text">Kami juga menyediakan paket termasuk hotel. Harga berbeda, bisa dibahas via chat pribadi.</span>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- Call to Action -->
-  <section class="py-16 bg-green-600 text-white text-center">
-    <div class="max-w-4xl mx-auto px-6 fade-in">
-      <h2 class="text-3xl font-bold mb-4" data-i18n="packages-cta-title">Siap untuk Petualangan Anda?</h2>
-      <p class="text-xl mb-8" data-i18n="packages-cta-desc">Gabung bersama ratusan pelanggan puas kami.</p>
-      <a href="https://wa.me/6281397606622?text=Halo!%20Saya%20ingin%20booking%20paket%20wisata." target="_blank" class="btn-whatsapp inline-block px-8 py-4 rounded-lg font-semibold">
-        <i class="fab fa-whatsapp mr-2"></i> <span data-i18n="btn-book">Pesan Sekarang</span>
-      </a>
-    </div>
-  </section>
-  <!-- Footer -->
-  <footer class="bg-gray-900 dark:bg-black text-white py-14 transition-colors duration-300">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="grid md:grid-cols-4 gap-10">
-        <div class="md:col-span-2">
-          <div class="flex items-center space-x-3 mb-5">
-            <img src="logo.png" alt="Logo" class="w-12 h-12 object-contain">
-            <div>
-              <h3 class="text-2xl font-bold">MEDAN TOBA SUMATERA</h3>
-              <p class="text-blue-200">Tour & Travel</p>
-            </div>
-          </div>
-          <p class="text-gray-400" data-i18n="footer-desc">Travel lokal terpercaya dengan supir Muslim. Kami menghadirkan pengalaman wisata Danau Toba yang nyaman, halal, dan berkesan.</p>
-        </div>
-        <div>
-          <h4 class="font-semibold mb-4" data-i18n="footer-services">Layanan</h4>
-          <ul class="space-y-2 text-gray-400">
-            <li><a href="#packages" class="hover:text-white" data-i18n="package-3-title">Paket 3 Hari 2 Malam</a></li>
-            <li><a href="#packages" class="hover:text-white" data-i18n="package-4-title">Paket 4 Hari 3 Malam</a></li>
-            <li><a href="#packages" class="hover:text-white" data-i18n="package-5-title-1">Paket 5 Hari 4 Malam</a></li>
-            <li><a href="#packages" class="hover:text-white" data-i18n="package-6-title">Paket 6 Hari 5 Malam</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="font-semibold mb-4" data-i18n="footer-contact">Kontak</h4>
-          <ul class="space-y-2 text-gray-400">
-            <li>WA 1 +62 813-9760-6622</li>
-            <li>WA 2 +62 822-7784-8855</li>
-            <li>📧 info@tobasumatera.com</li>
-            <li>📍 Medan, Sumatera Utara</li>
-          </ul>
-        </div>
-      </div>
-      <div class="border-t border-gray-800 mt-10 pt-8 text-center text-gray-500 text-sm">
-        <p>&copy; 2025 MEDAN TOBA SUMATERA TOUR & TRAVEL. Dibuat dengan ❤️ untuk wisatawan Indonesia.</p>
-      </div>
-      <!-- Social Media Buttons -->
-      <div class="mt-6 flex justify-center space-x-6">
-        <a href="https://facebook.com/ariel.azhura" target="_blank" class="social-button bg-blue-600 hover:shadow-lg">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="https://instagram.com/medantobasumatera" target="_blank" class="social-button bg-gradient-to-r from-purple-500 to-pink-500 hover:shadow-lg">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://youtube.com/@medantobasumatera" target="_blank" class="social-button bg-red-600 hover:shadow-lg">
-          <i class="fab fa-youtube"></i>
-        </a>
-        <a href="https://wa.me/6281397606622" target="_blank" class="social-button bg-green-500 hover:shadow-lg">
-          <i class="fab fa-whatsapp"></i>
-        </a>
-      </div>
-    </div>
-  </footer>
-  <!-- JavaScript -->
-  <script>
-    // === SET NILAI TUKAR DI SINI ===
-    const exchangeRate = 3500; // 1 RM = 3500 IDR
-    // Fungsi format angka ke Rupiah
-    function formatRupiah(amount) {
-      return new Intl.NumberFormat('id-ID', {
-        style: 'currency',
-        currency: 'IDR',
-        minimumFractionDigits: 0,
-        maximumFractionDigits: 0
-      }).format(amount);
-    }
-    // Update harga di semua paket
-    document.getElementById('price-3h2m').textContent = `≈ ${formatRupiah(1200 * exchangeRate)} untuk 2 orang`;
-    document.getElementById('price-4h3m').textContent = `≈ ${formatRupiah(1600 * exchangeRate)} untuk 3 orang`;
-    document.getElementById('price-5h4m1').textContent = `≈ ${formatRupiah(1800 * exchangeRate)} untuk 2 orang`;
-    document.getElementById('price-5h4m2').textContent = `≈ ${formatRupiah(1800 * exchangeRate)} untuk 2 orang`;
-    document.getElementById('price-6h5m').textContent = `≈ ${formatRupiah(2200 * exchangeRate)} untuk 2 orang`;
-    // === TERJEMAHAN LENGKAP ===
-    const translations = {
-      id: {
-        "packages-title": "Paket Wisata Tersedia",
-        "packages-desc": "Pilih paket yang sesuai dengan waktu dan anggaran Anda.",
-        "package-3-title": "Paket 3 Hari 2 Malam",
-        "package-4-title": "Paket 4 Hari 3 Malam",
-        "package-5-title-1": "Paket 5 Hari 4 Malam – Paket 1",
-        "package-5-title-2": "Paket 5 Hari 4 Malam – Paket 2",
-        "package-6-title": "Paket 6 Hari 5 Malam",
-        "hiking-note": "* Hiking Sibayak: RM 100/pax (cash)",
-        "hiking-note-2": "* Hiking Sibayak: RM 100 untuk 2 orang",
-        "hiking-note-3": "* Hiking Sibayak: RM 75/orang",
-        "btn-book-now": "Booking Sekarang",
-        "facilities-title": "Fasilitas Paket (Semua Paket)",
-        "included": "✅ Termasuk:",
-        "excluded": "❌ Tidak Termasuk:",
-        "note": "📌 Catatan:",
-        "note-text": "Kami juga menyediakan paket termasuk hotel. Harga berbeda, bisa dibahas via chat pribadi.",
-        "packages-cta-title": "Siap untuk Petualangan Anda?",
-        "packages-cta-desc": "Gabung bersama ratusan pelanggan puas kami.",
-        "btn-book": "Pesan Sekarang",
-        "footer-desc": "Travel lokal terpercaya dengan supir Muslim. Kami menghadirkan pengalaman wisata Danau Toba yang nyaman, halal, dan berkesan.",
-        "footer-services": "Layanan",
-        "footer-contact": "Kontak",
-        "nav-home": "Beranda",
-        "nav-packages": "Paket Wisata",
-        "nav-faq": "FAQ",
-        "nav-about": "Tentang Kami",
-        "nav-contact": "Kontak",
-        "lang-toggle": "EN",
-        "theme-toggle": "Mode Gelap",
-        "hero-title": "Wisata Nyaman & Halal\nMedan – Danau Toba",
-        "hero-desc": "Dengan supir Muslim lokal, mobil bersih, dan itinerary yang fleksibel. Pengalaman tak terlupakan dimulai dari sini.",
-        "stat-customers": "Pelanggan Puas",
-        "stat-experience": "Pengalaman",
-        "stat-halal": "Muslim Friendly"
-      },
-      en: {
-        "packages-title": "Available Tour Packages",
-        "packages-desc": "Choose the package that suits your time and budget.",
-        "package-3-title": "3 Days 2 Nights Package",
-        "package-4-title": "4 Days 3 Nights Package",
-        "package-5-title-1": "5 Days 4 Nights Package – Package 1",
-        "package-5-title-2": "5 Days 4 Nights Package – Package 2",
-        "package-6-title": "6 Days 5 Nights Package",
-        "hiking-note": "* Sibayak Hiking: RM 100/pax (cash)",
-        "hiking-note-2": "* Sibayak Hiking: RM 100 for 2 people",
-        "hiking-note-3": "* Sibayak Hiking: RM 75/person",
-        "btn-book-now": "Book Now",
-        "facilities-title": "Facilities (All Packages)",
-        "included": "✅ Included:",
-        "excluded": "❌ Not Included:",
-        "note": "📌 Note:",
-        "note-text": "We also provide packages that include hotels. Different prices, can be discussed via private chat.",
-        "packages-cta-title": "Ready for Your Adventure?",
-        "packages-cta-desc": "Join hundreds of satisfied customers.",
-        "btn-book": "Book Now",
-        "footer-desc": "Trusted local travel with Muslim drivers. We provide a comfortable, halal, and memorable Lake Toba experience.",
-        "footer-services": "Services",
-        "footer-contact": "Contact",
-        "nav-home": "Home",
-        "nav-packages": "Tour Packages",
-        "nav-faq": "FAQ",
-        "nav-about": "About Us",
-        "nav-contact": "Contact",
-        "lang-toggle": "ID",
-        "theme-toggle": "Light Mode",
-        "hero-title": "Comfortable & Halal Travel\nMedan – Lake Toba",
-        "hero-desc": "With local Muslim drivers, clean vehicles, and flexible itineraries. Unforgettable experiences start here.",
-        "stat-customers": "Satisfied Customers",
-        "stat-experience": "Years of Experience",
-        "stat-halal": "100% Halal"
-      }
-    };
-    // === Variabel Global ===
-    let currentLang = localStorage.getItem('toba-lang') || 'id';
-    let currentTheme = localStorage.getItem('toba-theme') || 'light';
-    // === Terapkan Bahasa ===
-    function applyLanguage(lang) {
-      document.querySelectorAll("[data-i18n]").forEach(el => {
-        const key = el.getAttribute("data-i18n");
-        if (translations[lang] && translations[lang][key]) {
-          if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
-            el.placeholder = translations[lang][key];
-          } else {
-            el.textContent = translations[lang][key];
-          }
+<body class="bg-background text-text-primary font-sans">
+  <!-- Root div for React -->
+  <div id="root"></div>
+  <!-- In-line JavaScript with Babel for JSX -->
+  <script type="text/babel">
+    const { useState, useEffect } = React;
+    const App = () => {
+      const [currentLang, setCurrentLang] = useState('id');
+      const [activeFilter, setActiveFilter] = useState('all');
+      const [lightboxOpen, setLightboxOpen] = useState(false);
+      const [lightboxIndex, setLightboxIndex] = useState(0);
+      const [showFilter, setShowFilter] = useState(false);
+      const [isDarkMode, setIsDarkMode] = useState(false);
+      const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+      const packages = [
+        {
+          id: 1,
+          title: "Paket 6 Hari 5 Malam",
+          itinerary: [
+            "Day 1: Pick up Kualanamu Airport → Paten Jaya & Air Bah Manik → Kebun Teh Sidamanik → Simarjarunjung View → Ferry in Samosir → Batu Passa → Check in Hotel Samosir",
+            "Day 2: Batu Siallagan → Tomok Palace → Pantai Batu Hoda → Jembatan Tano Ponggol → Holbung Hills → Bukit Sibea-bea → Efrata Waterfall → Stay Hotel Samosir",
+            "Day 3: Geosite Sipinsur → Huta Ginjang → Pantai Bul Bul → Khairos Cafe → Bukit Senyum → Pantai Bebas Parapat → Check in Hotel Parapat",
+            "Day 4: Sipiso-piso Waterfall → Loken Barn → Paropo – Silalahi → Pasar Buah Berastagi → Gundaling Hill → Check in Hotel Berastagi",
+            "Day 5: 04.00 Hiking Sibayak (optional) → Sarune Cafe → Savana Sinabung → Danau Lau Kawar → Sikulikap Waterfall → Sibolang Durian → Check in Hotel Medan",
+            "Day 6: Istana Maimoon → Tjong A Fie Mansion → Vihara Medan → Oleh-oleh Medan & Shopping Batik → Drop off Airport → Tour Finish 🙏"
+          ],
+          whatsapp: "https://wa.me/6281397606622?text=Halo!%20Saya%20minat%20Paket%206H5M."
+        },
+        {
+          id: 2,
+          title: "Paket 5 Hari 4 Malam – Paket 2",
+          itinerary: [
+            "Day 1: Pick up Kualanamu Airport → Paten Jaya & Mbah Damanik → Kebun Teh Sidamanik → Simarjarunjung View → Ferry in Samosir → Pantai Batu Hoda → Makan malam → Check in Hotel Samosir",
+            "Day 2: Batu Siallagan → Bukit Burung View → Holbung Hills → Bukit Sibea-bea → Efrata Waterfall → Jembatan Tano Ponggol → Tomok Palace → Makan malam → Check in Hotel Samosir",
+            "Day 3: Tele Tower → Loken Barn → Sipiso-piso Waterfall → Sarune Cafe → Gundaling Hill → Pasar Buah Berastagi → Makan malam → Check in Hotel Berastagi",
+            "Day 4: 04.00 Hiking Sibayak (optional) → Savana Sinabung → Lau Kawar Lake → Hot Spring Sidebuk-debuk → Bukit Gundaling → Lumbini Park → Makan malam → Stay Hotel Berastagi",
+            "Day 5: Sikulikap Waterfall → Istana Maimoon → Tjong A Fie Mansion → Vihara Medan → Oleh-oleh Medan → Shopping Mall / Batik → Drop off Airport → Tour Finish 🙏"
+          ],
+          whatsapp: "https://wa.me/6281397606622?text=Halo!%20Saya%20minat%20Paket%205H4M%20(Paket%202)."
+        },
+        {
+          id: 3,
+          title: "Paket 5 Hari 4 Malam – Paket 1",
+          itinerary: [
+            "Day 1: Pick up Airport → Sukulikap Waterfall → Hot Spring Sidebuk-debuk → Makan malam → Check in Hotel Berastagi",
+            "Day 2: 04.00 Hiking Sibayak (optional) → Sarune Cafe → Savana Sinabung → Danau Lau Kawar → Pasar Buah Berastagi → Bukit Gundaling → Lumbini Park / Tangke Tabu → Makan malam → Stay Hotel Berastagi",
+            "Day 3: Sipiso-piso Waterfall → Loken Barn → Tele Tower → Efrata Waterfall → Holbung Hills → Bukit Cinta → Bukit Burung → Pantai Batu Hoda → Makan malam → Check in Hotel Samosir",
+            "Day 4: Batu Siallagan → Ferry out Samosir → Simarjarunjung View → Kebun Teh Sidamanik → Air Bah Manik → On the way Medan → Makan malam → Check in Hotel Medan",
+            "Day 5: Istana Maimoon → Masjid Raya → Oleh-oleh Medan → Shopping Batik / Mall → Drop off Kualanamu Airport → Tour Finish 🙏"
+          ],
+          whatsapp: "https://wa.me/6281397606622?text=Halo!%20Saya%20minat%20Paket%205H4M%20(Paket%201)."
+        },
+        {
+          id: 4,
+          title: "Paket 4 Hari 3 Malam",
+          itinerary: [
+            "Day 1: Pick up Airport → Mbah Damanik → Kebun Teh Sidamanik → Simarjarunjung View → Panorama Parapat → Pantai I Love Toba → Ferry in Samosir → Makan malam → Check in Hotel Samosir",
+            "Day 2: Batu Siallagan → Tomok Village / Palace → Pantai Batu Hoda → Jembatan Tano Ponggol → Tulas View / Bukit Burung → Holbung Hills → Bukit Sibea-bea → Efrata Waterfall → Aek Natonang / Danau Sidohoni → Makan malam → Stay Hotel Samosir",
+            "Day 3: Sarapan, check out → Tele Tower → Loken Barn → Sipiso-piso Waterfall → Sarune Cafe → Gundaling Hill → Pasar Buah Berastagi → Hot Spring Sidebuk-debuk → Makan malam → Check in Hotel Berastagi",
+            "Day 4: 04.00 Hiking Sibayak (optional) → Sikulikap Waterfall → Istana Maimoon → Tjong A Fie Mansion → Vihara Medan → Oleh-oleh Medan → Drop off Airport / Hotel Medan → Tour Finish 🙏"
+          ],
+          whatsapp: "https://wa.me/6281397606622?text=Halo!%20Saya%20minat%20Paket%204H3M."
+        },
+        {
+          id: 5,
+          title: "Paket 3 Hari 2 Malam",
+          itinerary: [
+            "Day 1: Pick up Kualanamu Airport → Paten Jaya / Mbah Damanik → Kebun Teh Sidamanik → Simarjarunjung View → Ferry via Tigaras → Pantai Batu Hoda → Makan malam → Check in Hotel Samosir",
+            "Day 2: Sarapan, check out → Batu Siallagan → Bukit Burung View → Holbung Hills → Bukit Sibea-bea → Efrata Waterfall → Tele Tower → Loken Barn → Sipiso-piso Waterfall → Makan malam → Check in Hotel Berastagi",
+            "Day 3: 04.00 Hiking Sibayak (optional) → Sarapan, check out → Sarune Cafe → Bukit Gundaling → Sikulikap Waterfall → Istana Maimoon → Tjong A Fie Mansion → Oleh-oleh Medan → Makan siang → Drop off Airport → Tour Finish 🙏"
+          ],
+          whatsapp: "https://wa.me/6281397606622?text=Halo!%20Saya%20minat%20Paket%203H2M."
+        },
+        {
+          id: 6,
+          title: "Paket 3 Hari 2 Malam",
+          itinerary: [
+            "Day 1: Pick up Kualanamu Airport → Paten Jaya / Mbah Damanik → Kebun Teh Sidamanik → Simarjarunjung View → Ferry via Tigaras → Pantai Batu Hoda → Makan malam → Check in Hotel Samosir",
+            "Day 2: Sarapan, check out → Batu Siallagan → Bukit Burung View → Holbung Hills → Bukit Sibea-bea → Efrata Waterfall → Tele Tower → Loken Barn → Sipiso-piso Waterfall → Makan malam → Check in Hotel Berastagi",
+            "Day 3: 04.00 Hiking Sibayak (optional) → Sarapan, check out → Sarune Cafe → Bukit Gundaling → Sikulikap Waterfall → Istana Maimoon → Tjong A Fie Mansion → Oleh-oleh Medan → Makan siang → Drop off Airport → Tour Finish 🙏"
+          ],
+          whatsapp: "https://wa.me/6281397606622?text=Halo!%20Saya%20minat%20Paket%203H2M."
         }
-      });
-      document.documentElement.lang = lang;
-      document.title = translations[lang]['packages-title'] + " | MEDAN TOBA SUMATERA";
-    }
-    // === Terapkan Tema ===
-    function applyTheme(theme) {
-      const html = document.documentElement;
-      if (theme === 'dark') {
-        html.classList.add('dark');
-        document.getElementById('theme-toggle').innerHTML = '<i class="fas fa-sun"></i>';
-        document.getElementById('theme-toggle-mobile').innerHTML = '<i class="fas fa-sun"></i> <span data-i18n="theme-toggle">Mode Terang</span>';
-      } else {
-        html.classList.remove('dark');
-        document.getElementById('theme-toggle').innerHTML = '<i class="fas fa-moon"></i>';
-        document.getElementById('theme-toggle-mobile').innerHTML = '<i class="fas fa-moon"></i> <span data-i18n="theme-toggle">Mode Gelap</span>';
-      }
-      // Terjemahkan ulang setelah ganti tema
-      applyLanguage(currentLang);
-    }
-    // === Inisialisasi ===
-    document.addEventListener("DOMContentLoaded", () => {
-      applyLanguage(currentLang);
-      applyTheme(currentTheme);
-      // Set teks tombol bahasa
-      document.getElementById('lang-toggle').textContent = currentLang === 'id' ? 'EN' : 'ID';
-      document.getElementById('lang-toggle-mobile').textContent = currentLang === 'id' ? 'EN' : 'ID';
-    });
-    // === Ganti Bahasa ===
-    ['lang-toggle', 'lang-toggle-mobile'].forEach(id => {
-      document.getElementById(id)?.addEventListener('click', () => {
-        currentLang = currentLang === 'id' ? 'en' : 'id';
-        applyLanguage(currentLang);
-        localStorage.setItem('toba-lang', currentLang);
-        document.getElementById('lang-toggle').textContent = currentLang === 'id' ? 'EN' : 'ID';
-        document.getElementById('lang-toggle-mobile').textContent = currentLang === 'id' ? 'EN' : 'ID';
-      });
-    });
-    // === Ganti Tema ===
-    ['theme-toggle', 'theme-toggle-mobile'].forEach(id => {
-      document.getElementById(id)?.addEventListener('click', () => {
-        currentTheme = currentTheme === 'light' ? 'dark' : 'light';
-        localStorage.setItem('toba-theme', currentTheme);
-        applyTheme(currentTheme);
-      });
-    });
-    // === Fade-in saat scroll ===
-    const faders = document.querySelectorAll('.fade-in');
-    const appearOnScroll = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('active');
-        appearOnScroll.unobserve(entry.target);
-      });
-    }, { threshold: 0.1 });
-    faders.forEach(fader => appearOnScroll.observe(fader));
-    // Mobile Menu Toggle
-    document.getElementById('menu-toggle')?.addEventListener('click', () => {
-      document.getElementById('mobile-menu').classList.toggle('hidden');
-    });
+      ];
+      const galleryImages = [
+        "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3",
+        "https://images.unsplash.com/photo-1578662996442-48f60103fc96?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3",
+        "https://images.unsplash.com/photo-1511593358241-7eea1f3c84e5?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3",
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3",
+        "https://images.unsplash.com/photo-1494790108755-2616c0763c5b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3",
+        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3",
+        "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3",
+        "https://images.unsplash.com/photo-1578662996442-48f60103fc96?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3"
+      ];
+      const destinations = [
+        {
+          id: 1,
+          title: "Danau Toba",
+          category: "danau-toba",
+          image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3",
+          description: "Keajaiban alam danau vulkanik dengan pemandangan menakjubkan dan budaya Batak yang kaya.",
+          included: "Termasuk di semua paket"
+        },
+        {
+          id: 2,
+          title: "Pulau Samosir",
+          category: "danau-toba",
+          image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3",
+          description: "Pulau di tengah Danau Toba dengan warisan budaya Batak yang autentik dan pemandangan menawan.",
+          included: "Termasuk di 3H+ paket"
+        },
+        {
+          id: 3,
+          title: "Berastagi",
+          category: "berastagi-sibayak",
+          image: "https://images.unsplash.com/photo-1511593358241-7eea1f3c84e5?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3",
+          description: "Udara sejuk pegunungan dengan buah-buahan segar dan pemandangan Gunung Sinabung yang memukau.",
+          included: "Termasuk di 4H+ paket"
+        },
+        {
+          id: 4,
+          title: "Gunung Sibayak",
+          category: "berastagi-sibayak",
+          image: "https://images.unsplash.com/photo-1511593358241-7eea1f3c84e5?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3",
+          description: "Gunung aktif dengan trek hiking populer, fumarol, dan pemandian air panas alami.",
+          included: "Hiking opsional (tambahan RM 100)"
+        },
+        {
+          id: 5,
+          title: "Medan City Tour",
+          category: "medan",
+          image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3",
+          description: "Jelajahi kuliner halal terbaik dan warisan budaya Melayu di ibu kota Sumatera Utara.",
+          included: "Termasuk di akhir perjalanan"
+        }
+      ];
+      const testimonials = [
+        {
+          id: 1,
+          name: "Ahmad & Keluarga",
+          location: "Jakarta",
+          image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3",
+          text: "Pengalaman luar biasa! Supirnya ramah, mobilnya bersih, dan itinerary-nya sangat teratur. Kami sekeluarga sangat puas."
+        },
+        {
+          id: 2,
+          name: "Sarah",
+          location: "Bandung",
+          image: "https://images.unsplash.com/photo-1494790108755-2616c0763c5b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3",
+          text: "MEDAN TOBA SUMATERA memang amanah. Mereka sangat memperhatikan kebutuhan kami, bahkan soal makanan halal. Highly recommended!"
+        },
+        {
+          id: 3,
+          name: "Ali & Teman-teman",
+          location: "Surabaya",
+          image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3",
+          text: "Galeri foto mereka di website ini sesuai dengan kenyataan. Pemandangannya jauh lebih indah aslinya. Terima kasih!"
+        }
+      ];
+      const translations = {
+        id: {
+          heroTitle: "Wisata Nyaman & Halal\nMedan – Danau Toba",
+          heroDesc: "Dengan supir Muslim lokal, mobil bersih, dan itinerary yang fleksibel. Pengalaman tak terlupakan dimulai dari sini.",
+          packagesTitle: "Paket Wisata Unggulan",
+          packagesDesc: "Pilihan paket wisata halal terbaik dengan harga transparan dan pelayanan terpercaya",
+          packageFacilitiesTitle: "Fasilitas Paket (Semua Paket)",
+          packageFacilitiesIncluded: "✅ Termasuk:",
+          packageFacilitiesExcluded: "❌ Tidak Termasuk:",
+          packageFacilitiesNote: "📌 Catatan:",
+          packageFacilitiesNoteText: "Kami juga menyediakan paket termasuk hotel. Harga berbeda, bisa dibahas via chat pribadi.",
+          galleryTitle: "Galeri Perjalanan Kami",
+          galleryDesc: "Momen indah pelanggan kami di Danau Toba.",
+          destinationsTitle: "Destinasi Wisata Kami",
+          destinationsDesc: "Nikmati keindahan alam, budaya Batak, dan pemandangan spektakuler di Medan, Danau Toba, Berastagi & Sibayak.",
+          aboutTitle: "Tentang Kami",
+          aboutDesc: "TOBA SUMATERA TOUR & TRAVEL adalah tim lokal yang berdedikasi melayani wisatawan dari Medan ke Danau Toba sejak 2018.",
+          navHome: "Beranda",
+          navPackages: "Paket Wisata",
+          navGallery: "Galeri",
+          navDestinations: "Destinasi",
+          navAbout: "Tentang Kami",
+          navContact: "Kontak",
+          bookNow: "Pesan Sekarang",
+          seePackages: "Lihat Paket",
+          consultCustom: "Konsultasi Custom",
+          viewAll: "Lihat Semua",
+          facilities: "Fasilitas Paket",
+          included: "✅ Termasuk:",
+          notIncluded: "❌ Tidak Termasuk:",
+          note: "📌 Catatan:",
+          noteText: "Kami juga menyediakan paket termasuk hotel. Harga berbeda, bisa dibahas via chat pribadi.",
+          filterAll: "Semua",
+          filterLake: "Danau Toba",
+          filterMountains: "Berastagi & Sibayak",
+          filterCity: "Medan",
+          categoryLake: "Danau Toba",
+          categoryMountains: "Berastagi & Sibayak",
+          categoryCity: "Medan",
+          readyToExplore: "Siap Jelajahi Destinasi Ini?",
+          joinCustomers: "Gabung bersama ratusan pelanggan puas kami.",
+          ourValues: "Nilai Kami",
+          trust: "Kepercayaan",
+          trustDesc: "Kami menjunjung tinggi kejujuran dan keterbukaan dalam setiap layanan.",
+          service: "Pelayanan",
+          serviceDesc: "Kami selalu siap melayani dengan ramah, cepat, dan profesional.",
+          halal: "Halal",
+          halalDesc: "Semua makanan, transportasi, dan aktivitas kami sesuai prinsip halal.",
+          contactUs: "Hubungi Kami",
+          sendWhatsApp: "Kirim ke WhatsApp",
+          footerDesc: "Travel lokal terpercaya dengan supir Muslim. Kami menghadirkan pengalaman wisata Danau Toba yang nyaman, halal, dan berkesan.",
+          footerServices: "Layanan",
+          footerContact: "Kontak",
+          followUs: "Ikuti Kami"
+        },
+        en: {
+          heroTitle: "Comfortable & Halal Travel\nMedan – Lake Toba",
+          heroDesc: "With local Muslim drivers, clean vehicles, and flexible itineraries. Unforgettable experiences start here.",
+          packagesTitle: "Featured Tour Packages",
+          packagesDesc: "A selection of the best halal tour packages with transparent pricing and reliable service.",
+          packageFacilitiesTitle: "Package Facilities (All Packages)",
+          packageFacilitiesIncluded: "✅ Included:",
+          packageFacilitiesExcluded: "❌ Not Included:",
+          packageFacilitiesNote: "📌 Note:",
+          packageFacilitiesNoteText: "We also provide packages that include hotels. Prices vary and can be discussed via private chat.",
+          galleryTitle: "Our Journey Gallery",
+          galleryDesc: "Beautiful moments from our customers at Lake Toba.",
+          destinationsTitle: "Our Travel Destinations",
+          destinationsDesc: "Enjoy the beauty of nature, Batak culture, and spectacular views in Medan, Lake Toba, Berastagi & Sibayak.",
+          aboutTitle: "About Us",
+          aboutDesc: "TOBA SUMATERA TOUR & TRAVEL is a local team dedicated to serving travelers from Medan to Lake Toba since 2018.",
+          navHome: "Home",
+          navPackages: "Tour Packages",
+          navGallery: "Gallery",
+          navDestinations: "Destinations",
+          navAbout: "About Us",
+          navContact: "Contact",
+          bookNow: "Book Now",
+          seePackages: "View Packages",
+          consultCustom: "Custom Consultation",
+          viewAll: "View All",
+          facilities: "Package Facilities",
+          included: "✅ Included:",
+          notIncluded: "❌ Not Included:",
+          note: "📌 Note:",
+          noteText: "We also provide packages that include hotels. Different prices, can be discussed via private chat.",
+          filterAll: "All",
+          filterLake: "Lake Toba",
+          filterMountains: "Berastagi & Sibayak",
+          filterCity: "Medan",
+          categoryLake: "Lake Toba",
+          categoryMountains: "Berastagi & Sibayak",
+          categoryCity: "Medan",
+          readyToExplore: "Ready to Explore These Destinations?",
+          joinCustomers: "Join hundreds of satisfied customers.",
+          ourValues: "Our Values",
+          trust: "Trust",
+          trustDesc: "We uphold honesty and transparency in every service.",
+          service: "Service",
+          serviceDesc: "We are always ready to serve with friendliness, speed, and professionalism.",
+          halal: "Halal",
+          halalDesc: "All our food, transportation, and activities comply with halal principles.",
+          contactUs: "Hubungi Kami",
+          sendWhatsApp: "Send to WhatsApp",
+          footerDesc: "Trusted local travel with Muslim drivers. We bring you a comfortable, halal, and memorable Lake Toba experience.",
+          footerServices: "Layanan",
+          footerContact: "Kontak",
+          followUs: "Ikuti Kami"
+        }
+      };
+      const t = translations[currentLang];
+      const toggleLanguage = () => {
+        setCurrentLang(currentLang === 'id' ? 'en' : 'id');
+      };
+      const toggleMobileMenu = () => {
+        setMobileMenuOpen(!mobileMenuOpen);
+      };
+      const toggleDarkMode = () => {
+        setIsDarkMode(prevMode => !prevMode);
+        document.documentElement.classList.toggle('dark');
+        localStorage.setItem('theme', isDarkMode ? 'light' : 'dark');
+      };
+      const openLightbox = (index) => {
+        setLightboxIndex(index);
+        setLightboxOpen(true);
+      };
+      const closeLightbox = () => {
+        setLightboxOpen(false);
+      };
+      const nextImage = () => {
+        setLightboxIndex((prevIndex) => (prevIndex + 1) % galleryImages.length);
+      };
+      const prevImage = () => {
+        setLightboxIndex((prevIndex) => (prevIndex - 1 + galleryImages.length) % galleryImages.length);
+      };
+      const filterDestinations = (category) => {
+        setActiveFilter(category);
+      };
+      const filteredDestinations = activeFilter === 'all' 
+        ? destinations 
+        : destinations.filter(dest => dest.category === activeFilter);
+      const toggleFilter = () => {
+        setShowFilter(!showFilter);
+      };
+      useEffect(() => {
+        const handleKeyDown = (e) => {
+          if (!lightboxOpen) return;
+          if (e.key === 'Escape') closeLightbox();
+          if (e.key === 'ArrowLeft') prevImage();
+          if (e.key === 'ArrowRight') nextImage();
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+      }, [lightboxOpen]);
+      useEffect(() => {
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+          setIsDarkMode(true);
+        } else {
+          document.documentElement.classList.remove('dark');
+          setIsDarkMode(false);
+        }
+      }, []);
+      const renderPackages = () => {
+        return packages.map((pkg) => (
+          <div key={pkg.id} className="card-elevated group hover:scale-105 transition-all duration-300">
+            <div className="relative overflow-hidden rounded-t-xl">
+              <img 
+                src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3" 
+                alt={pkg.title} 
+                className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" 
+              />
+              <div className="absolute top-4 left-4">
+                <span className="bg-secondary text-white px-3 py-1 rounded-full text-sm font-semibold">
+                  <i className="fas fa-certificate mr-1"></i>Halal
+                </span>
+              </div>
+            </div>
+            <div className="p-6">
+              <h3 className="package-title">{pkg.title}</h3>
+              <div className="space-y-4 text-sm text-text-secondary">
+                {pkg.itinerary.map((day, index) => (
+                  <div key={index} className="itinerary-item">
+                    <span className="itinerary-day">Day {index + 1}:</span>
+                    <span className="itinerary-content">{day.split('→').join(' → ')}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-6 text-center">
+                <a href={pkg.whatsapp} target="_blank" className="btn-primary w-full">
+                  <i className="fab fa-whatsapp mr-2"></i>{t.bookNow}
+                </a>
+              </div>
+            </div>
+          </div>
+        ));
+      };
+      const renderTestimonials = () => {
+        return testimonials.map((testimonial) => (
+          <div key={testimonial.id} className="card p-6 text-center">
+            <div className="mb-6">
+              <img 
+                src={testimonial.image} 
+                alt={`${testimonial.name} Family`} 
+                className="w-20 h-20 rounded-full mx-auto object-cover mb-4" 
+              />
+              <div className="flex justify-center mb-3">
+                <i className="fas fa-star text-warning"></i>
+                <i className="fas fa-star text-warning"></i>
+                <i className="fas fa-star text-warning"></i>
+                <i className="fas fa-star text-warning"></i>
+                <i className="fas fa-star text-warning"></i>
+              </div>
+            </div>
+            <blockquote className="testimonial-text">
+              "{testimonial.text}"
+            </blockquote>
+            <div>
+              <p className="testimonial-name">{testimonial.name}</p>
+              <p className="testimonial-location">{testimonial.location}</p>
+            </div>
+          </div>
+        ));
+      };
+      const renderDestinations = () => {
+        return filteredDestinations.map((dest) => (
+          <div key={dest.id} className="card group hover:scale-105 transition-all duration-300 overflow-hidden">
+            <div className="relative">
+              <img 
+                src={dest.image} 
+                alt={dest.title} 
+                className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" 
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              <div className="absolute bottom-4 left-4 text-white">
+                <h3 className="destination-title">{dest.title}</h3>
+                <p className="destination-category">{dest.category === 'danau-toba' ? t.categoryLake : dest.category === 'berastagi-sibayak' ? t.categoryMountains : t.categoryCity}</p>
+              </div>
+              <div className="absolute top-4 right-4">
+                <span className="bg-secondary text-white px-2 py-1 rounded-lg text-xs font-semibold">
+                  <i className="fas fa-mosque mr-1"></i>Halal
+                </span>
+              </div>
+            </div>
+            <div className="p-4">
+              <div className="flex items-center justify-between mb-2">
+                <div className="flex items-center text-warning">
+                  <i className="fas fa-star text-sm"></i>
+                  <span className="ml-1 text-sm font-semibold">4.8</span>
+                </div>
+                <span className="text-sm text-text-secondary">15 aktivitas</span>
+              </div>
+              <p className="destination-description">
+                {dest.description}
+              </p>
+              <a href="#destinations" className="destination-link hover:underline">
+                Pelajari Lebih Lanjut <i className="fas fa-arrow-right ml-1"></i>
+              </a>
+            </div>
+          </div>
+        ));
+      };
+      const renderGallery = () => {
+        return galleryImages.slice(0, 6).map((image, index) => (
+          <div 
+            key={index} 
+            className="relative group overflow-hidden rounded-xl aspect-square cursor-pointer"
+            onClick={() => openLightbox(index)}
+          >
+            <img 
+              src={image} 
+              alt={`Wisata ${index + 1}`} 
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
+            />
+            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300"></div>
+            <div className="absolute bottom-2 left-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <i className="fas fa-heart text-white text-sm"></i>
+            </div>
+          </div>
+        ));
+      };
+      return (
+        <div className={`bg-background text-text-primary font-sans transition-colors duration-500 ${isDarkMode ? 'dark' : ''}`}>
+          {/* Header */}
+          <header className={`bg-header-bg shadow-soft sticky top-0 z-50 transition-colors duration-500`}>
+            <nav className="container-custom">
+              <div className="flex items-center justify-between h-16 lg:h-20">
+                {/* Logo */}
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center">
+                    <i className="fas fa-mountain text-white text-lg lg:text-xl"></i>
+                  </div>
+                  <div>
+                    <h1 className="font-accent font-semibold text-lg lg:text-xl text-primary">Medan Toba</h1>
+                    <p className="text-xs text-text-secondary hidden sm:block">Sumatera Tour</p>
+                  </div>
+                </div>
+                
+                {/* Mobile Menu Toggle */}
+                <button className="mobile-menu-toggle" onClick={toggleMobileMenu}>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </button>
+                
+                {/* Navigation and Toggles */}
+                <div className={`nav-links ${mobileMenuOpen ? 'active' : ''} flex items-center space-x-4 flex-wrap justify-end`}>
+                  <a href="#home" className="text-text-secondary hover:text-primary transition-colors duration-300">{t.navHome}</a>
+                  <a href="#packages" className="text-text-secondary hover:text-primary transition-colors duration-300">{t.navPackages}</a>
+                  <a href="#gallery" className="text-text-secondary hover:text-primary transition-colors duration-300">{t.navGallery}</a>
+                  <a href="#destinations" className="text-text-secondary hover:text-primary transition-colors duration-300">{t.navDestinations}</a>
+                  <a href="#about" className="text-text-secondary hover:text-primary transition-colors duration-300">{t.navAbout}</a>
+                  <div className="flex items-center space-x-2 nav-social">
+                    <button onClick={toggleLanguage} className="bg-primary-50 text-primary px-3 py-1 rounded-full text-xs font-semibold hover:bg-primary-100 transition-smooth">
+                      {currentLang === 'id' ? 'EN' : 'ID'}
+                    </button>
+                    <button onClick={toggleDarkMode} className="text-text-primary">
+                      <i className={`fas ${isDarkMode ? 'fa-sun' : 'fa-moon'}`}></i>
+                    </button>
+                    <a href="https://wa.me/6281397606622" target="_blank" className="text-text-secondary hover:text-secondary"><i className="fab fa-whatsapp"></i></a>
+                    <a href="https://instagram.com/medantobasumatera" target="_blank" className="text-text-secondary hover:text-pink-500"><i className="fab fa-instagram"></i></a>
+                    <a href="https://facebook.com/ariel.azhura" target="_blank" className="text-text-secondary hover:text-blue-600"><i className="fab fa-facebook"></i></a>
+                    <a href="https://youtube.com/@medantobasumatera" target="_blank" className="text-text-secondary hover:text-red-600"><i className="fab fa-youtube"></i></a>
+                  </div>
+                </div>
+              </div>
+            </nav>
+          </header>
+          {/* Hero Section */}
+          <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+            {/* Background Image */}
+            <div className="absolute inset-0 z-0">
+              <img 
+                src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3" 
+                alt="Danau Toba Pemandangan Indah" 
+                className="w-full h-full object-cover" 
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-slate-900/70 via-slate-900/50 to-transparent"></div>
+            </div>
+            {/* Hero Content */}
+            <div className="relative z-10 container-custom text-center lg:text-left">
+              <div className="max-w-4xl mx-auto lg:mx-0">
+                {/* Main Headline */}
+                <h1 className="font-accent text-4xl lg:text-6xl font-semibold text-white mb-6 leading-tight">
+                  Wisata <span className="text-gradient">Berkah</span>
+                </h1>
+                <h2 className="text-xl lg:text-2xl text-slate-200 mb-4 font-medium">
+                  Your Trusted North Sumatra Travel Companion
+                </h2>
+                <p className="text-lg text-slate-300 mb-8 max-w-2xl mx-auto lg:mx-0">
+                  Jelajahi keindahan Sumatera Utara dengan panduan wisata halal terpercaya. 
+                  Pengalaman 6+ tahun melayani keluarga Muslim dengan kenyamanan dan keamanan terjamin.
+                </p>
+                {/* CTA Buttons */}
+                <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12">
+                  <a href="https://wa.me/6281397606622?text=Halo%20MEDAN%20TOBA%20SUMATERA%20TOUR%20%26%20TRAVEL!" target="_blank" className="btn-secondary text-lg px-8 py-4">
+                    <i className="fab fa-whatsapp mr-3 text-xl"></i>
+                    Konsultasi via WhatsApp
+                  </a>
+                  <a href="#packages" className="btn-outline bg-white/10 border-white text-white hover:bg-white hover:text-primary text-lg px-8 py-4 backdrop-blur-sm">
+                    <i className="fas fa-route mr-3"></i>
+                    Lihat Paket Wisata
+                  </a>
+                </div>
+                {/* Trust Indicators */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl mx-auto lg:mx-0">
+                  <div className="flex items-center justify-center lg:justify-start space-x-3 text-white">
+                    <div className="w-12 h-12 bg-secondary/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                      <i className="fas fa-calendar-check text-secondary text-lg"></i>
+                    </div>
+                    <div>
+                      <p className="font-semibold">6+ Tahun</p>
+                      <p className="text-sm text-slate-300">Pengalaman</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-center lg:justify-start space-x-3 text-white">
+                    <div className="w-12 h-12 bg-secondary/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                      <i className="fas fa-mosque text-secondary text-lg"></i>
+                    </div>
+                    <div>
+                      <p className="font-semibold">Wisata Halal</p>
+                      <p className="text-sm text-slate-300">Terjamin</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-center lg:justify-start space-x-3 text-white">
+                    <div className="w-12 h-12 bg-secondary/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                      <i className="fas fa-user-tie text-secondary text-lg"></i>
+                    </div>
+                    <div>
+                      <p className="font-semibold">Driver</p>
+                      <p className="text-sm text-slate-300">Berpengalaman</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* Scroll Indicator */}
+            <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-gentle-bounce">
+              <i className="fas fa-chevron-down text-white text-2xl opacity-70"></i>
+            </div>
+          </section>
+          {/* Featured Packages Section */}
+          <section id="packages" className="section-padding bg-surface">
+            <div className="container-custom">
+              <div className="text-center mb-12">
+                <h2 className="font-accent text-3xl lg:text-4xl font-semibold text-text-primary mb-4">
+                  Paket Wisata <span className="text-primary">Unggulan</span>
+                </h2>
+                <p className="text-lg text-text-secondary max-w-2xl mx-auto">
+                  Pilihan paket wisata halal terbaik dengan harga transparan dan pelayanan terpercaya
+                </p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {renderPackages()}
+              </div>
+            </div>
+          </section>
+          {/* Package Information Section */}
+          <section className="section-padding bg-white">
+            <div className="container-custom">
+              <div className="text-center mb-12">
+                <h2 className="font-accent text-3xl lg:text-4xl font-semibold text-text-primary mb-4">
+                  {t.packageFacilitiesTitle}
+                </h2>
+                <p className="text-lg text-text-secondary max-w-2xl mx-auto">
+                  {t.packageFacilitiesNoteText}
+                </p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="card p-6">
+                  <h3 className="text-xl font-semibold mb-4 text-primary">{t.packageFacilitiesIncluded}</h3>
+                  <ul className="space-y-3">
+                    <li className="facility-item">
+                      <i className="fas fa-check-circle text-secondary facility-icon"></i>
+                      <span className="facility-text">Driver Profesional</span>
+                    </li>
+                    <li className="facility-item">
+                      <i className="fas fa-check-circle text-secondary facility-icon"></i>
+                      <span className="facility-text">Mobil AC Nyaman</span>
+                    </li>
+                    <li className="facility-item">
+                      <i className="fas fa-check-circle text-secondary facility-icon"></i>
+                      <span className="facility-text">BBM & Tol</span>
+                    </li>
+                    <li className="facility-item">
+                      <i className="fas fa-check-circle text-secondary facility-icon"></i>
+                      <span className="facility-text">Tiket Masuk & Ferry</span>
+                    </li>
+                    <li className="facility-item">
+                      <i className="fas fa-check-circle text-secondary facility-icon"></i>
+                      <span className="facility-text">Air Mineral</span>
+                    </li>
+                    <li className="facility-item">
+                      <i className="fas fa-check-circle text-secondary facility-icon"></i>
+                      <span className="facility-text">Makan Driver</span>
+                    </li>
+                    <li className="facility-item">
+                      <i className="fas fa-check-circle text-secondary facility-icon"></i>
+                      <span className="facility-text">Penginapan Driver</span>
+                    </li>
+                  </ul>
+                </div>
+                <div className="card p-6">
+                  <h3 className="text-xl font-semibold mb-4 text-primary">{t.packageFacilitiesExcluded}</h3>
+                  <ul className="space-y-3">
+                    <li className="facility-item">
+                      <i className="fas fa-times-circle text-error facility-icon"></i>
+                      <span className="facility-text">Hotel Penginapan</span>
+                    </li>
+                    <li className="facility-item">
+                      <i className="fas fa-times-circle text-error facility-icon"></i>
+                      <span className="facility-text">Makan Siang & Malam</span>
+                    </li>
+                    <li className="facility-item">
+                      <i className="fas fa-times-circle text-error facility-icon"></i>
+                      <span className="facility-text">Guide Hiking Sibayak</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+          {/* Customer Testimonials */}
+          <section className="section-padding bg-surface">
+            <div className="container-custom">
+              <div className="text-center mb-12">
+                <h2 className="font-accent text-3xl lg:text-4xl font-semibold text-text-primary mb-4">
+                  Testimoni <span className="text-primary">Pelanggan</span>
+                </h2>
+                <p className="text-lg text-text-secondary max-w-2xl mx-auto">
+                  Kepercayaan keluarga Muslim dari Malaysia dan Indonesia adalah prioritas utama kami
+                </p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {renderTestimonials()}
+              </div>
+            </div>
+          </section>
+          {/* Destinations Preview */}
+          <section id="destinations" className="section-padding bg-white">
+            <div className="container-custom">
+              <div className="text-center mb-12">
+                <h2 className="font-accent text-3xl lg:text-4xl font-semibold text-text-primary mb-4">
+                  Destinasi <span className="text-primary">Unggulan</span>
+                </h2>
+                <p className="text-lg text-text-secondary max-w-2xl mx-auto">
+                  Jelajahi keindahan Sumatera Utara dengan panduan lokal yang berpengalaman
+                </p>
+              </div>
+              {/* Filter Options */}
+              <div className="flex flex-wrap justify-center gap-4 mb-8">
+                <button 
+                  onClick={() => filterDestinations('all')}
+                  className={`px-6 py-2 rounded-full font-semibold transition-smooth ${
+                    activeFilter === 'all' 
+                      ? 'bg-primary text-white' 
+                      : 'bg-white text-text-secondary hover:bg-primary hover:text-white dark:bg-slate-700'
+                  }`}
+                >
+                  <i className="fas fa-map mr-2"></i>{t.filterAll}
+                </button>
+                <button 
+                  onClick={() => filterDestinations('danau-toba')}
+                  className={`px-6 py-2 rounded-full font-semibold transition-smooth ${
+                    activeFilter === 'danau-toba' 
+                      ? 'bg-primary text-white' 
+                      : 'bg-white text-text-secondary hover:bg-primary hover:text-white dark:bg-slate-700'
+                  }`}
+                >
+                  <i className="fas fa-clock mr-2"></i>{t.filterLake}
+                </button>
+                <button 
+                  onClick={() => filterDestinations('berastagi-sibayak')}
+                  className={`px-6 py-2 rounded-full font-semibold transition-smooth ${
+                    activeFilter === 'berastagi-sibayak' 
+                      ? 'bg-primary text-white' 
+                      : 'bg-white text-text-secondary hover:bg-primary hover:text-white dark:bg-slate-700'
+                  }`}
+                >
+                  <i className="fas fa-users mr-2"></i>{t.filterMountains}
+                </button>
+                <button 
+                  onClick={() => filterDestinations('medan')}
+                  className={`px-6 py-2 rounded-full font-semibold transition-smooth ${
+                    activeFilter === 'medan' 
+                      ? 'bg-primary text-white' 
+                      : 'bg-white text-text-secondary hover:bg-primary hover:text-white dark:bg-slate-700'
+                  }`}
+                >
+                  <i className="fas fa-mountain mr-2"></i>{t.filterCity}
+                </button>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                {renderDestinations()}
+              </div>
+              <div className="text-center mt-12">
+                <a href="#destinations" className="btn-outline text-lg px-8 py-4">
+                  <i className="fas fa-compass mr-3"></i>
+                  Jelajahi Semua Destinasi
+                </a>
+              </div>
+            </div>
+          </section>
+          {/* Gallery Section */}
+          <section id="gallery" className="section-padding bg-surface">
+            <div className="container-custom">
+              <div className="text-center mb-12">
+                <h2 className="font-accent text-3xl lg:text-4xl font-semibold text-text-primary mb-4">
+                  Momen <span className="text-primary">Berkesan</span>
+                </h2>
+                <p className="text-lg text-text-secondary max-w-2xl mx-auto">
+                  Lihat kebahagiaan pelanggan kami dalam setiap perjalanan wisata halal
+                </p>
+              </div>
+              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                {renderGallery()}
+              </div>
+              <div className="text-center mt-8">
+                <a href="#gallery" className="btn-outline text-lg px-8 py-4">
+                  <i className="fas fa-images mr-3"></i>
+                  Lihat Galeri Lengkap
+                </a>
+              </div>
+            </div>
+          </section>
+          {/* About Us Section */}
+          <section id="about" className="section-padding bg-white">
+            <div className="container-custom">
+              <div className="text-center mb-12">
+                <h2 className="font-accent text-3xl lg:text-4xl font-semibold text-text-primary mb-4">
+                  <span className="text-primary">Tentang</span> Kami
+                </h2>
+                <p className="text-lg text-text-secondary max-w-2xl mx-auto">
+                  Tim lokal dengan pengalaman 6 tahun melayani wisatawan Muslim ke Danau Toba.
+                </p>
+              </div>
+              <div className="grid md:grid-cols-2 gap-10 items-center">
+                <div>
+                  <img 
+                    src="https://picsum.photos/id/1074/800/600" 
+                    alt="Supir Lokal" 
+                    className="rounded-3xl shadow-2xl w-full object-cover h-96" 
+                  />
+                </div>
+                <div className="space-y-6">
+                  <h2 className="text-3xl md:text-4xl font-bold text-text-primary">{t.aboutTitle}</h2>
+                  <p className="text-lg text-text-secondary leading-relaxed">
+                    {t.aboutDesc}
+                  </p>
+                  <div className="space-y-3">
+                    <div className="flex items-center space-x-3"><i className="fas fa-check-circle text-secondary"></i> <span>Supir Muslim & Amanah</span></div>
+                    <div className="flex items-center space-x-3"><i className="fas fa-check-circle text-secondary"></i> <span>Panduan Lokal</span></div>
+                    <div className="flex items-center space-x-3"><i className="fas fa-check-circle text-secondary"></i> <span>Wisata Halal</span></div>
+                  </div>
+                  <a href="#contact" className="inline-block mt-4 text-primary font-semibold hover:underline">
+                    Hubungi Kami →
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
+          {/* Why Choose Us Section */}
+          <section className="section-padding bg-surface">
+            <div className="container-custom">
+              <div className="text-center mb-12">
+                <h2 className="font-accent text-3xl lg:text-4xl font-semibold text-text-primary mb-4">
+                  Mengapa Pilih <span className="text-primary">Kami</span>?
+                </h2>
+                <p className="text-lg text-text-secondary max-w-2xl mx-auto">
+                  Kepercayaan 6+ tahun melayani wisata halal dengan standar kualitas terbaik
+                </p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div className="text-center">
+                  <div className="value-icon">
+                    <i className="fas fa-certificate text-white text-2xl"></i>
+                  </div>
+                  <h3 className="value-title">Halal Terjamin</h3>
+                  <p className="value-description">Semua makanan, hotel, dan aktivitas telah tersertifikasi halal</p>
+                </div>
+                <div className="text-center">
+                  <div className="value-icon bg-gradient-to-br from-primary to-primary-600">
+                    <i className="fas fa-user-tie text-white text-2xl"></i>
+                  </div>
+                  <h3 className="value-title">Driver Berpengalaman</h3>
+                  <p className="value-description">Tim driver profesional dengan pengalaman 5+ tahun</p>
+                </div>
+                <div className="text-center">
+                  <div className="value-icon bg-gradient-to-br from-accent to-accent-600">
+                    <i className="fas fa-dollar-sign text-white text-2xl"></i>
+                  </div>
+                  <h3 className="value-title">Harga Transparan</h3>
+                  <p className="value-description">Tidak ada biaya tersembunyi, semua sudah termasuk</p>
+                </div>
+                <div className="text-center">
+                  <div className="value-icon bg-gradient-to-br from-warning to-warning-600">
+                    <i className="fas fa-headset text-white text-2xl"></i>
+                  </div>
+                  <h3 className="value-title">24/7 Support</h3>
+                  <p className="value-description">Customer service siap membantu kapan saja</p>
+                </div>
+              </div>
+            </div>
+          </section>
+          {/* Contact Section */}
+          <section id="contact" className="section-padding bg-gradient-to-r from-primary to-accent text-white">
+            <div className="container-custom text-center">
+              <div className="max-w-3xl mx-auto">
+                <h2 className="font-accent text-3xl lg:text-4xl font-semibold mb-4">
+                  Mulai Perjalanan Berkah Anda
+                </h2>
+                <p className="text-lg mb-8 opacity-90">
+                  Konsultasi gratis dengan tim ahli kami untuk merencanakan wisata halal yang tak terlupakan
+                </p>
+                {/* Prayer Time Display */}
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 mb-8 max-w-md mx-auto">
+                  <div className="flex items-center justify-center mb-3">
+                    <i className="fas fa-mosque text-2xl mr-3"></i>
+                    <h3 className="font-semibold text-lg">Waktu Sholat Medan</h3>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4 text-sm">
+                    <div className="prayer-time-item">
+                      <p className="prayer-time-label">Subuh</p>
+                      <p className="prayer-time-value">05:15</p>
+                    </div>
+                    <div className="prayer-time-item">
+                      <p className="prayer-time-label">Dzuhur</p>
+                      <p className="prayer-time-value">12:30</p>
+                    </div>
+                    <div className="prayer-time-item">
+                      <p className="prayer-time-label">Ashar</p>
+                      <p className="prayer-time-value">15:45</p>
+                    </div>
+                    <div className="prayer-time-item">
+                      <p className="prayer-time-label">Maghrib</p>
+                      <p className="prayer-time-value">18:20</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <a href="https://wa.me/6281397606622?text=Halo%20MEDAN%20TOBA%20SUMATERA%20TOUR%20%26%20TRAVEL!" target="_blank" className="btn-secondary bg-white text-primary hover:bg-slate-100 text-lg px-8 py-4">
+                    <i className="fab fa-whatsapp mr-3 text-xl"></i>
+                    Konsultasi Sekarang
+                  </a>
+                  <a href="#packages" className="btn-outline border-white text-white hover:bg-white hover:text-primary text-lg px-8 py-4">
+                    <i className="fas fa-phone mr-3"></i>
+                    Hubungi Langsung
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
+          {/* Footer */}
+          <footer className="bg-slate-900 text-white section-padding">
+            <div className="container-custom">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                {/* Company Info */}
+                <div>
+                  <div className="flex items-center space-x-3 mb-4">
+                    <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center">
+                      <i className="fas fa-mountain text-white"></i>
+                    </div>
+                    <div>
+                      <h3 className="font-accent font-semibold text-lg text-primary">Medan Toba</h3>
+                      <p className="text-sm text-slate-300">Sumatera Tour</p>
+                    </div>
+                  </div>
+                  <p className="text-slate-300 mb-4">
+                    Wisata Berkah dengan pengalaman 6+ tahun melayani keluarga Muslim. 
+                    Terpercaya, aman, dan nyaman.
+                  </p>
+                  <div className="flex space-x-4">
+                    <a href="https://facebook.com/ariel.azhura" target="_blank" className="social-icon">
+                      <i className="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://instagram.com/medantobasumatera" target="_blank" className="social-icon">
+                      <i className="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://youtube.com/@medantobasumatera" target="_blank" className="social-icon">
+                      <i className="fab fa-youtube"></i>
+                    </a>
+                  </div>
+                </div>
+                {/* Quick Links */}
+                <div>
+                  <h4 className="footer-heading">Menu Utama</h4>
+                  <ul className="space-y-2">
+                    <li><a href="#home" className="footer-link">{t.navHome}</a></li>
+                    <li><a href="#packages" className="footer-link">{t.navPackages}</a></li>
+                    <li><a href="#gallery" className="footer-link">{t.navGallery}</a></li>
+                    <li><a href="#destinations" className="footer-link">{t.navDestinations}</a></li>
+                    <li><a href="#about" className="footer-link">{t.navAbout}</a></li>
+                    <li><a href="#contact" className="footer-link">{t.navContact}</a></li>
+                  </ul>
+                </div>
+                {/* Services */}
+                <div>
+                  <h4 className="footer-heading">Layanan Kami</h4>
+                  <ul className="space-y-2 text-slate-300">
+                    <li className="flex items-start"><i className="fas fa-check text-secondary mt-1 mr-2"></i><span>Tour Halal Terpercaya</span></li>
+                    <li className="flex items-start"><i className="fas fa-check text-secondary mt-1 mr-2"></i><span>Driver Berpengalaman</span></li>
+                    <li className="flex items-start"><i className="fas fa-check text-secondary mt-1 mr-2"></i><span>Kendaraan Nyaman</span></li>
+                    <li className="flex items-start"><i className="fas fa-check text-secondary mt-1 mr-2"></i><span>Panduan Wisata Lokal</span></li>
+                    <li className="flex items-start"><i className="fas fa-check text-secondary mt-1 mr-2"></i><span>Konsultasi Gratis</span></li>
+                    <li className="flex items-start"><i className="fas fa-check text-secondary mt-1 mr-2"></i><span>Harga Transparan</span></li>
+                  </ul>
+                </div>
+                {/* Contact Info */}
+                <div>
+                  <h4 className="footer-heading">Hubungi Kami</h4>
+                  <div className="space-y-3">
+                    <div className="footer-contact-item">
+                      <i className="fas fa-map-marker-alt footer-contact-icon"></i>
+                      <p className="footer-contact-text">Jl. Sisingamangaraja No. 123<br />Medan, Sumatera Utara</p>
+                    </div>
+                    <div className="footer-contact-item">
+                      <i className="fab fa-whatsapp footer-contact-icon"></i>
+                      <p className="footer-contact-text">+62 813-9760-6622</p>
+                    </div>
+                    <div className="footer-contact-item">
+                      <i className="fas fa-envelope footer-contact-icon"></i>
+                      <p className="footer-contact-text">info@medantobasumatera.com</p>
+                    </div>
+                    <div className="footer-contact-item">
+                      <i className="fas fa-clock footer-contact-icon"></i>
+                      <p className="footer-contact-text">24/7 Customer Service</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {/* Bottom Footer */}
+              <div className="border-t border-slate-800 pt-8 text-center">
+                <p className="text-slate-400">
+                  © 2025 Medan Toba Sumatera Tour. All Rights Reserved. | 
+                  <span className="text-secondary">Wisata Berkah</span> - Your Trusted Travel Companion
+                </p>
+              </div>
+            </div>
+          </footer>
+          {/* Floating WhatsApp Button */}
+          <a 
+            href="https://wa.me/6281397606622?text=Halo%20MEDAN%20TOBA%20SUMATERA%20TOUR%20%26%20TRAVEL!" 
+            target="_blank" 
+            className="floating-whatsapp"
+          >
+            <i className="fab fa-whatsapp text-2xl"></i>
+          </a>
+          {/* Lightbox Modal */}
+          {lightboxOpen && ReactDOM.createPortal(
+            <div className="lightbox-overlay" onClick={closeLightbox}>
+              <span className="lightbox-close" onClick={closeLightbox}>&times;</span>
+              <button 
+                className="lightbox-nav lightbox-prev" 
+                onClick={(e) => { e.stopPropagation(); prevImage(); }}
+              >
+                &#10094;
+              </button>
+              <img 
+                src={galleryImages[lightboxIndex]} 
+                alt={`Gallery ${lightboxIndex + 1}`} 
+                className="lightbox-content"
+              />
+              <button 
+                className="lightbox-nav lightbox-next" 
+                onClick={(e) => { e.stopPropagation(); nextImage(); }}
+              >
+                &#10095;
+              </button>
+            </div>,
+            document.body
+          )}
+        </div>
+      );
+    };
+    // Render the App component to the root div
+    ReactDOM.render(<App />, document.getElementById('root'));
   </script>
 </body>
 </html>
+```
